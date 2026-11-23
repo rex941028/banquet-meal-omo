@@ -1,0 +1,67 @@
+name: 錯誤回報
+description: 回報網站、會員、交易或門市流程的異常。
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: 請提供可重現的操作資訊。請勿填入真實顧客資料、驗證碼或金鑰；截圖與紀錄請先遮蔽個資。
+  - type: dropdown
+    id: area
+    attributes:
+      label: 影響範圍
+      options:
+        - 商品／購物車／結帳／付款
+        - 會員／登入／點數
+        - 喜宴 QR／門市自取／POS
+        - 後台管理
+        - 其他
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 重現步驟
+      description: 說明從哪個頁面開始，以及每一步操作。
+      placeholder: |
+        1. 開啟……
+        2. 點選……
+        3. 出現……
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 預期結果
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: 實際結果
+      description: 可附上已遮蔽個資的錯誤訊息或截圖。
+    validations:
+      required: true
+  - type: dropdown
+    id: data-mode
+    attributes:
+      label: 資料模式
+      options:
+        - 展示模式
+        - Supabase 本機
+        - Supabase 遠端
+        - 不確定
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: 操作環境
+      description: 裝置、作業系統、瀏覽器版本，以及網址或版本編號（若知道）。
+      placeholder: 例如：iPhone／iOS／Safari，本機 localhost:3000
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: 補充資訊
+      description: 發生頻率、影響程度，或其他相關 Issue。

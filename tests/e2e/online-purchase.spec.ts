@@ -30,6 +30,7 @@ test('online purchase with frozen delivery', async ({ page }) => {
 test('a failed payment keeps the hold and offers a retry (US-2 scenario 4)', async ({ page }) => {
   await page.goto('/products/yu-chi-geng');
   await page.getByRole('button', { name: /加入購物車/ }).click();
+  await expect(page.getByText('已加入購物車（1 份）', { exact: true })).toBeVisible();
   await page.goto('/checkout');
   await signIn(page, '0911222444');
   await page.getByLabel('收件人').fill('測試');
